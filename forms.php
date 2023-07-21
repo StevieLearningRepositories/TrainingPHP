@@ -68,17 +68,12 @@ function test_input($data) {
 
 
 
-<?php
-echo "<h2>Jouw ingevulde oordeel:</h2>";
-echo '<span style="font-weight:bold;">Jouw impressie: </span>';
-echo $impressie;
-echo "<br><br>";
-echo '<span style="font-weight:bold;">Mijn verbeteringen: </span>';
-echo $improvement;
-echo "<br><br>";
-echo '<span style="font-weight:bold;">Jouw beoordeling: </span>';
-echo $rating;
-?>
+<h2>Jouw ingevulde oordeel:</h2>
+<span style="font-weight:bold;">Jouw impressie: </span> <?= $impressie?>
+<br><br>
+<span style="font-weight:bold;">Mijn verbeteringen: </span> <?= $improvement?>
+<br><br>
+<span style="font-weight:bold;">Jouw beoordeling: </span> <?= $rating?>
 <br>
 <br>
 <br>

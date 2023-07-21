@@ -10,6 +10,17 @@
       <interpreter id="9bbc44c1-4a2d-42e9-910f-5a82d8c594f7" name="Ubuntu" home="\\wsl$\Ubuntu/usr/bin/php" debugger_id="php.debugger.XDebug">
         <remote_data INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DISTRIBUTION_ID="Ubuntu" />
       </interpreter>
+      <interpreter id="de4439cd-de7c-4aa8-adca-2530818ef259" name="DDEV" home="docker-compose://DATA" debugger_id="php.debugger.XDebug">
+        <remote_data INTERPRETER_PATH="php8.1" HELPERS_PATH="/opt/.phpstorm_helpers" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="Docker" DOCKER_COMPOSE_SERVICE_NAME="web" DOCKER_REMOTE_PROJECT_PATH="/opt/project">
+          <type_data command="EXEC" />
+          <dockerComposeConfigurationPaths>
+            <item value="$PROJECT_DIR$/.ddev/.ddev-docker-compose-full.yaml" />
+          </dockerComposeConfigurationPaths>
+          <envs>
+            <env name="COMPOSE_PROJECT_NAME" value="ddev-php-training-project" />
+          </envs>
+        </remote_data>
+      </interpreter>
     </interpreters>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
