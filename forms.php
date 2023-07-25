@@ -12,6 +12,7 @@
 
 
 <?php
+session_start();
 $impressieErr = $improvementErr = $ratingErr = "";
 $impressie = $improvement = $rating = "";
 $numRate = 10;
@@ -60,6 +61,7 @@ function test_input($data) {
 
 
     <?php for ($r = 1; $r <= $numRate; $r++) { ?>
+
         <input type="radio" name="rating" value="<?= $r?>"
             <?php if ($r === $rating) echo "checked"; ?> >
         <?= $r?>
@@ -73,15 +75,10 @@ function test_input($data) {
 </form>
 
 
-<h2>Jouw ingevulde oordeel:</h2>
-<span style="font-weight:bold;">Jouw impressie: </span> <?= $impressie?>
-<br><br>
-<span style="font-weight:bold;">Mijn verbeteringen: </span> <?= $improvement?>
-<br><br>
-<span style="font-weight:bold;">Jouw beoordeling: </span> <?= $rating?>
 <br>
 <br>
-<br>
-<button onclick="document.location='index.html'">Ga terug</button>
+<button onclick="document.location='index.html'" style="margin-left: 50px">Ga terug</button>
+<button onclick="document.location='results.php'" style="float: right; margin-right: 50px">Resultaat</button>
+
 </body>
 </html>
