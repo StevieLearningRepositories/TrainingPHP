@@ -15,7 +15,6 @@ session_start();
 $improvementErr = $ratingErr = "";
 $impressie = $improvement = $rating = "";
 $ratingNum = 10;
-$onclick = $_POST['submit'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -46,7 +45,7 @@ function test_input($data) {
 <span class="error">* Verplicht veld</span>
 <br>
 <br>
-<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <b>Impressie:</b><textarea name="impressie" rows="2" cols="40"></textarea>
     <br><br>
     <b>Verbetering:</b><textarea name="improvement" rows="2" cols="40"></textarea>
@@ -64,7 +63,7 @@ function test_input($data) {
 
     <span class="error">* <?php echo $ratingErr;?></span>
     <br><br>
-    <input type="submit" name="Verstuur" onclick="document.location='results.php'">
+    <input type="submit" name="submit" value="Verstuur">
 </form>
 
 
