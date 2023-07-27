@@ -63,7 +63,7 @@ function test_input($data) {
 
     <span class="error">* <?php echo $ratingErr;?></span>
     <br><br>
-    <input type="submit" name="submit" value="Verstuur">
+    <input type="submit" name="submit" value="Verstuur" onsubmit="form.submit(document.location='https://php-training-project.ddev.site/results.php')">
 </form>
 
 
