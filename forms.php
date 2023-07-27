@@ -15,27 +15,35 @@ session_start()
 <body>
 
 <?php
-$improvementErr = $ratingErr = "";
+$errors = array();
 $impression = $improvement = $rating = "";
 $ratingNum = 10;
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+
     if (empty($_POST['improvement'])) {
-        $improvementErr = "Graag wil ik feedback ontvangen!";
+        $errors["improvementErr"] = "Graag wil ik feedback ontvangen!";
     } else {
         $improvement = test_input($_POST["improvement"]);
     }
 
     if (empty($_POST['rating'])) {
-            $ratingErr = "Beoordeel dit formulier van 1 t/m 10";
+            $errors["ratingErr"] = "Beoordeel dit formulier van 1 t/m 10";
     } else {
         $rating = test_input($_POST["rating"]);
     }
 
-}
+    if (empty($errors)) {
+        $_SESSION["impression"] = htmlspecialchars($_POST["impression"]);
+        $_SESSION["improvement"] = htmlspecialchars($_POST["improvement"]);
+        $_SESSION["rating"] = htmlspecialchars($_POST["rating"]);
+        header("Location: results.php");
+        exit;
+    }
 
+}
 
 function test_input($data) {
     $data = trim($data);
@@ -55,7 +63,7 @@ function test_input($data) {
     <b>Impressie:</b><textarea name="impression" rows="2" cols="40"></textarea>
     <br><br>
     <b>Verbetering:</b><textarea name="improvement" rows="2" cols="40"></textarea>
-    <span class="error">* <?php echo $improvementErr;?></span>
+    <span class="error">* <?php echo isset($errors["improvementErr"]) ? $errors["improvementErr"] : "";?></span>
     <br><br>
 
 
@@ -66,14 +74,15 @@ function test_input($data) {
             <?php } ?>
     <br>
 
-    <span class="error">* <?php echo $ratingErr;?></span>
+    <span class="error">* <?php echo isset($errors["ratingErr"]) ? $errors["ratingErr"] : "";?></span>
     <br><br>
-    <button type="submit" onsubmit="results.php"> Verstuur</button>
+    <button formmethod="post">Verstuur</button>
 </form>
 
 <br>
 <br>
 <button onclick="document.location='index.html'">Ga terug</button>
+
 
 </body>
 </html>

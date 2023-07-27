@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <body>
@@ -9,10 +12,9 @@
 
 
 <?php
-session_start();
-$resImpres = $_POST["impression"];
-$resImprov = $_POST["improvement"];
-$resRat = ($_POST["rating"]) ??  "";
+$resImpres = $_SESSION["impression"] ?? "";
+$resImprov = $_SESSION["improvement"] ?? "";
+$resRat = $_SESSION["rating"] ??  "";
 ?>
 
 <h2>Jouw ingevulde oordeel:</h2>
@@ -28,3 +30,7 @@ $resRat = ($_POST["rating"]) ??  "";
 </body>
 </html>
 
+<?php
+session_destroy();
+session_abort();
+?>
