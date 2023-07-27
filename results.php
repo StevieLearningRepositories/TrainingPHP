@@ -10,9 +10,9 @@
 
 <?php
 session_start();
-$resImpres = $_POST['impressie'];
-$resImprov = $_POST['improvement'];
-$resRat = $_POST['rating'];
+$resImpres = $_POST["impression"];
+$resImprov = $_POST["improvement"];
+$resRat = ($_POST["rating"]) ??  "";
 ?>
 
 <h2>Jouw ingevulde oordeel:</h2>

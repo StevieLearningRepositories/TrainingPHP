@@ -1,3 +1,7 @@
+<?php
+session_start()
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,24 +15,25 @@
 <body>
 
 <?php
-session_start();
 $improvementErr = $ratingErr = "";
-$impressie = $improvement = $rating = "";
+$impression = $improvement = $rating = "";
 $ratingNum = 10;
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    if (empty($_POST["improvement"])) {
+    if (empty($_POST['improvement'])) {
         $improvementErr = "Graag wil ik feedback ontvangen!";
     } else {
         $improvement = test_input($_POST["improvement"]);
     }
 
-    if (empty($_POST["rating"])) {
+    if (empty($_POST['rating'])) {
             $ratingErr = "Beoordeel dit formulier van 1 t/m 10";
     } else {
         $rating = test_input($_POST["rating"]);
     }
+
 }
 
 
@@ -38,6 +43,7 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
+
 ?>
 
 
@@ -46,7 +52,7 @@ function test_input($data) {
 <br>
 <br>
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <b>Impressie:</b><textarea name="impressie" rows="2" cols="40"></textarea>
+    <b>Impressie:</b><textarea name="impression" rows="2" cols="40"></textarea>
     <br><br>
     <b>Verbetering:</b><textarea name="improvement" rows="2" cols="40"></textarea>
     <span class="error">* <?php echo $improvementErr;?></span>
@@ -55,17 +61,15 @@ function test_input($data) {
 
     <?php for ($r = 1; $r <= $ratingNum; $r++) { ?>
 
-        <input type="radio" name="rating" value="<?= $r?>"
-            <?php if ($r === $rating) echo "checked"; ?> >
-        <?= $r?>
+        <input type="radio" name="rating" value=<?= $r?>
+            <?php if (isset($r) && $r === $rating) echo "checked";?> > <?= $r ?>
             <?php } ?>
     <br>
 
     <span class="error">* <?php echo $ratingErr;?></span>
     <br><br>
-    <input type="submit" name="submit" value="Verstuur" onsubmit="form.submit(document.location='https://php-training-project.ddev.site/results.php')">
+    <button type="submit" onsubmit="results.php"> Verstuur</button>
 </form>
-
 
 <br>
 <br>
