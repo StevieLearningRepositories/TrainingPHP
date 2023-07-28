@@ -26,10 +26,15 @@ $resRat = $_SESSION["rating"] ??  "";
 <br><br>
 <br><br>
 <button onclick="document.location='forms.php'">Go back</button>
-
+<br>
+<br>
 </body>
 </html>
 
+<?php
+date_default_timezone_set("Europe/Amsterdam");
+echo date("d-m-Y H:i:s");
+?>
 <?php
 session_destroy();
 session_abort();

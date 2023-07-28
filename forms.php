@@ -42,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: results.php");
         exit;
     }
-
 }
 
 function test_input($data) {
@@ -51,7 +50,6 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
-
 ?>
 
 
@@ -82,7 +80,11 @@ function test_input($data) {
 <br>
 <br>
 <button onclick="document.location='index.html'">Ga terug</button>
-
-
+<br>
+<br>
+<?php
+date_default_timezone_set("Europe/Amsterdam");
+echo date("d-m-Y H:i:s");
+?>
 </body>
 </html>
