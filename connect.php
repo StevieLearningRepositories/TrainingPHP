@@ -1,13 +1,12 @@
 <?php
 
-require "results.php";
+require "functions.php";
 
-$dsn = "mysql:host=localhost;username=root;port=3306;dbname=db;charset=utf8mb4;";
+$dsn = "mysql:host=db;port=3306;dbname=db;";
+$pdo = new PDO($dsn, 'root', 'root');
 
-$pdo = new PDO($dsn);
 
-$statement = $pdo->prepare("SELECT * FROM input");
-$statement->execute();
-$post = $statement->fetchAll();
+$statement = $pdo->query("SELECT * FROM input");
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-dd($post);
+dd($posts);
