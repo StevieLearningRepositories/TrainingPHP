@@ -32,10 +32,14 @@ $resRat = $_SESSION["rating"] ??  "";
 </html>
 
 <?php
+session_destroy();
+session_abort();
+
+?>
+
+<?php
 date_default_timezone_set("Europe/Amsterdam");
 echo date("d-m-Y H:i:s");
 ?>
-<?php
-session_destroy();
-session_abort();
-?>
+
+

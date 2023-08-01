@@ -1,7 +1,6 @@
 <?php
-session_start()
+session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,9 +65,8 @@ function test_input($data) {
 
 
     <?php for ($r = 1; $r <= $ratingNum; $r++) { ?>
-
         <input type="radio" name="rating" value=<?= $r?>
-            <?php if (isset($r) && $r === $rating) echo "checked";?> > <?= $r ?>
+            <?php if ($r === $rating) echo "checked";?> > <?= $r ?>
             <?php } ?>
     <br>
 
@@ -79,7 +77,7 @@ function test_input($data) {
 
 <br>
 <br>
-<button onclick="document.location='index.html'">Ga terug</button>
+<button onclick="document.location='index.php' ">Ga terug</button>
 <br>
 <br>
 <?php
