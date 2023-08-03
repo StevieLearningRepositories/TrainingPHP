@@ -1,12 +1,11 @@
 <?php
 
 require "functions.php";
+require "Database.php";
 
-$dsn = "mysql:host=db;port=3306;dbname=db;";
-$pdo = new PDO($dsn, 'root', 'root');
+$config = require ('config.php');
 
+$db = new Bases($config['database']);
 
-$statement = $pdo->query("SELECT * FROM input");
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+$rows = $db->query("select * from input")->fetchall();
 
-dd($posts);
