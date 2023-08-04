@@ -1,6 +1,6 @@
 <?php
 
-//die en dump functie
+//die en dump functie(testing vars)
 function dd($value): void
 {
     echo "<pre>";
