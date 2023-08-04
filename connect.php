@@ -7,10 +7,10 @@ require "Database.php";
 $config = require ('config.php');
 $db = new Bases($config['database']);
 
-//Gericht zoeken DB
+//Gericht tabellen zoeken DB
 $rows = $db->query("select * from input")->fetchall();
 
-//Check of dat value in DB te halen is
+//Check of dat value in DB op te halen is
 foreach($rows as $row) {
     if(isset($row)) {
         $row = "Variable not set";
