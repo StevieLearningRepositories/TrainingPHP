@@ -1,8 +1,9 @@
 <?php
 
+//class voor object te zoeken voor verbinding en scoping
 class Bases {
 
-    public $connect;
+    public PDO $connect;
     public function __construct($config)
     {
         $dbh = 'mysql:' . http_build_query($config, '', ';');
@@ -12,12 +13,8 @@ class Bases {
         ]);
     }
 
-    public function query($query)
+    public function query($query): bool|PDOStatement
     {
-        $statement = $this->connect->prepare($query);
-
-        $statement->execute();
-
-        return $statement;
+        return $this->connect->query($query);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+//instellingen waar DB te zoeken
 return [
     'database' => [
         'host' => 'db',
@@ -7,4 +8,3 @@ return [
         'dbname' => 'db'
         ]
 ];
-?>
